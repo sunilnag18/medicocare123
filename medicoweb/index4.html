@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload with Password Protection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .upload-container {
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-label, .submit-password {
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .upload-label:hover, .submit-password:hover {
+            background-color: #357ae8;
+        }
+
+        .file-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .file-list p {
+            margin: 5px 0;
+        }
+
+        .upload-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .upload-btn:hover {
+            background-color: #218838;
+        }
+
+        .password-section {
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            color: red;
+            display: none;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="upload-container">
+    <h2>Protected File Upload</h2>
+
+    
+    <div class="password-section" id="setPasswordSection">
+        <h3>Set your password</h3>
+        <input type="password" id="setPasswordInput" placeholder="Set your password" />
+        <button class="submit-password" onclick="setPassword()">Set Password</button>
+        <p class="error-message" id="setPasswordErrorMessage">Password is required to proceed.</p>
+    </div>
+
+    
+    <div class="password-section" id="verifyPasswordSection" style="display: none;">
+        <h3>Enter your password</h3>
+        <input type="password" id="verifyPasswordInput" placeholder="Enter your password" />
+        <button class="submit-password" onclick="verifyPassword()">Submit</button>
+        <p class="error-message" id="verifyPasswordErrorMessage">Incorrect password. Please try again.</p>
+    </div>
+
+    
+    <div class="upload-section" id="uploadSection" style="display: none;">
+        <label class="upload-label" for="fileUpload">Choose Files</label>
+        <input type="file" id="fileUpload" multiple accept=".jpg, .jpeg, .png, .pdf, .doc, .docx, .ppt, .pptx, .txt" onchange="displayFiles()">
+        
+        
+        <div class="file-list" id="fileList"></div>
+
+        
+        <button class="upload-btn" onclick="uploadFiles()">Upload Files</button>
+    </div>
+</div>
+
+<script>
+    let savedPassword = null; 
+
+    
+    function setPassword() {
+        const setPasswordInput = document.getElementById('setPasswordInput').value;
+        const setPasswordErrorMessage = document.getElementById('setPasswordErrorMessage');
+
+        if (setPasswordInput) {
+            savedPassword = setPasswordInput;  
+            document.getElementById('setPasswordSection').style.display = 'none';
+            document.getElementById('verifyPasswordSection').style.display = 'block'; 
+        } else {
+            setPasswordErrorMessage.style.display = 'block';  
+        }
+    }
+
+    
+    function verifyPassword() {
+        const verifyPasswordInput = document.getElementById('verifyPasswordInput').value;
+        const verifyPasswordErrorMessage = document.getElementById('verifyPasswordErrorMessage');
+
+        if (verifyPasswordInput === savedPassword) {
+            verifyPasswordErrorMessage.style.display = 'none';  
+            document.getElementById('verifyPasswordSection').style.display = 'none';  
+            document.getElementById('uploadSection').style.display = 'block';  
+        } else {
+            verifyPasswordErrorMessage.style.display = 'block';  
+        }
+    }
+
+    
+    function displayFiles() {
+        const fileInput = document.getElementById('fileUpload');
+        const fileListDiv = document.getElementById('fileList');
+        fileListDiv.innerHTML = ''; 
+
+        if (fileInput.files.length > 0) {
+            for (let i = 0; i < fileInput.files.length; i++) {
+                const file = fileInput.files[i];
+                const fileInfo = `<p>File: ${file.name} - ${Math.round(file.size / 1024)} KB</p>`;
+                fileListDiv.innerHTML += fileInfo;
+            }
+        } else {
+            fileListDiv.innerHTML = '<p>No files selected</p>';
+        }
+    }
+
+
+    function uploadFiles() {
+        const fileInput = document.getElementById('fileUpload');
+        if (fileInput.files.length > 0) {
+            alert('Files uploaded successfully!');
+        } else {
+            alert('Please select at least one file to upload.');
+        }
+    }
+</script>
+
+</body>
+</html>

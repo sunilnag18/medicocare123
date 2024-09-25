@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medico Care - Professional Healthcare Services</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+                   
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header ul li {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        header ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header ul li a:hover {
+            text-decoration: underline;
+        }
+
+    
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+    
+        .intro {
+            background-image: url('stethoscope-medical-mask.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .intro-text h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .intro-text img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .intro-text button {
+            background-color: #28a745;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .intro-text button:hover {
+            background-color: #218838;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #007BFF;
+            color: white;   
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        
+        .hidden-section {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Medico Care</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Emergency</a>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="redirectToGoogleMaps('hospital')">Nearby Hospitals</a>
+                        <a href="#" onclick="redirectToGoogleMaps('ambulance')">Nearby Ambulances</a>
+                        <a href="blood-donors.html">Find Blood Donors</a>
+                        <a href="#" onclick="showSection('child-helpline')">Child Helpline: 1098</a>
+                    </div>
+                </li>
+                <li><a href="scanner.html">Scanner</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="index4.html">Uploads</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="intro">
+        <div class="intro-text">
+            <h2>Welcome to Medico Care</h2>
+            <img src="images.img" alt="Healthcare Image">
+            <p>Your trusted partner in professional healthcare services, committed to providing high-quality, compassionate care to every patient.</p>
+            <button onclick="getStarted()">Get Started</button>
+        </div>
+    </section>
+
+    <div id="child-helpline" class="hidden-section">
+        <h2>Child Helpline: 1098</h2>
+        <p>If you need assistance, please call the child helpline at <strong>1098</strong> for immediate support.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Medico Care. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function getStarted() {
+            window.location.href = 'sign.html';
+        }
+
+        function redirectToGoogleMaps(type) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    let searchQuery = '';
+                    
+                    if (type === 'hospital') {
+                        searchQuery = 'hospitals';
+                    } else if (type === 'ambulance') {
+                        searchQuery = 'ambulances';
+                    }
+                    
+                    const googleMapsUrl = `https://www.google.com/maps/search/${searchQuery}/@${latitude},${longitude},14z`;
+                    window.open(googleMapsUrl, '_blank');
+                }, function() {
+                    alert('Geolocation failed. Please allow access to location.');
+                });
+            } else {
+                alert('Your browser does not support Geolocation.');
+            }
+        }
+    </script>
+</body>
+</html>

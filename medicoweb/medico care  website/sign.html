@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-container {
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 350px;
+        }
+
+        .form-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .form-container p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #888;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .signup-btn:hover {
+            background-color: #357ae8;
+        }
+
+        .or-divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .or-divider span {
+            background-color: #fff;
+            padding: 0 10px;
+            color: #888;
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        .or-divider::before {
+            left: 0;
+            width: 45%;
+        }
+
+        .or-divider::after {
+            right: 0;
+            width: 45%;
+        }
+
+        .google-signin-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .google-signin-btn:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body style="background-image: url('med6.avif'); background-size: cover;">
+    <div class="signup-container">
+        <div class="form-container">
+            <h1>Sign Up</h1>
+            <p>Account center</p>
+            <form id="signup-form">
+                <button type="button" class="signup-btn" onclick="sign()">Sign Up</button>
+                <div class="or-divider">
+                    <span>OR</span>
+                </div>
+                <button type="button" class="google-signin-btn" onclick="signInWithGoogle()">Sign in with Google</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function signInWithGoogle() {
+        
+            window.location.href = 'index3.html';
+        }
+
+        function sign() {
+            
+            window.location.href = 'index2.html';
+        }
+    </script>
+</body>
+</html>

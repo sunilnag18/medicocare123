@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 400px;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Registration</h2>
+    <form id="registerForm">
+        <input type="text" placeholder="Name" required>
+        <input type="date" placeholder="Date of Birth" required>
+        <input type="text" placeholder="Blood Group" required>
+        <input type="text" placeholder="Education Qualification" required>
+        <input type="file" accept="image/*" placeholder="Passport Size Photo" required>
+        <input type="file" accept="image/*" placeholder="Education Certificate" required>
+        <input type="file" accept="image/*" placeholder="Experience Certificate" required>
+        <input type="text" placeholder="EMIS No" required>
+        <input type="text" placeholder="Aadhaar No" required>
+        <input type="text" placeholder="Passport No" required>
+        <input type="text" placeholder="License No" required>
+        <input type="text" placeholder="Birth Certificate No" required>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

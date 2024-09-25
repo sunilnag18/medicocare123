@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministry of AYUSH - Medico Care</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        /* Ministry of AYUSH Section */
+        .ayush-section {
+            padding: 50px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .ayush-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .ayush-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        /* Upcoming Schemes Section */
+        .schemes-section {
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+
+        .schemes-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .schemes-box h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .schemes-box p {
+            font-size: 1.1rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Set medium size for the slideshow images */
+        .mySlides {
+            display: none;
+            width: 50%;  /* Reduce width to medium size */
+            height: auto;
+            margin: 0 auto;  /* Center the images */
+        }
+
+        /* Add animation to the slides */
+        .mySlides {
+            animation: fade 1.5s ease-in-out;
+        }
+        #num1 {
+            margin-left: 150px;
+        }
+
+        @keyframes fade {
+            from {opacity: 0.4}
+            to {opacity: 1}
+        }
+
+        /* Prime Minister Section */
+        .pm-section {
+            padding: 50px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .pm-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .pm-section p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .pm-section img {
+            width: 200px;
+            border-radius: 50%;
+            transition: transform 0.5s ease; /* Transition for image */
+        }
+
+        .pm-section img:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Slideshow transition for second image set */
+        .slideshow img {
+            display: none;
+            width: 50%; /* Medium size */
+            height: auto;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        .slideshow img.active {
+            display: block;
+            animation: fade 1.5s ease-in-out;
+        }
+
+    </style>
+</head>
+<body style="background-image: url('indiabg.avif');">
+
+    <!-- Header -->
+    <header>
+        <h1>MINISTRY OF AYUSH - MEDICO CARE</h1>
+    </header>
+
+    <!-- Ministry of AYUSH Section -->
+    <section class="ayush-section">
+        <h2>About the Ministry of AYUSH</h2>
+        <p>The Ministry of AYUSH was formed to ensure the development and propagation of Ayurveda, Yoga and Naturopathy, Unani, Siddha, and Homeopathy systems of healthcare. It strives to promote holistic healthcare across India, integrating the traditional practices with modern medicine for a healthier society.</p>
+        <img src="logogover.png" alt="Ministry of AYUSH" style="width: 15%; height: auto; transition: opacity 0.5s ease;">
+    </section>
+
+    <!-- Upcoming Schemes Section -->
+    <section class="schemes-section">
+        <div class="schemes-box">
+            <h3>Upcoming Schemes</h3>
+            <p>The Ministry of AYUSH is launching a number of new healthcare initiatives aimed at improving access to alternative and holistic medicine. These schemes focus on rural outreach, promoting indigenous healthcare knowledge, and integrating traditional methods with modern healthcare practices. The government is investing significantly in research, education, and infrastructure to make AYUSH-based healthcare available to everyone.</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fk0OxTKz0_Q?si=5Sf3m8UozWu2ifO9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
+            <iframe id="num1" width="560" height="315" src="https://www.youtube.com/embed/pmi84wxSQy4?si=ooy46-6h-9Mx3sCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <!-- Slideshow Section -->
+        <div class="slideshow-container">
+            <img class="mySlides" src="ayush1.jpg" alt="AYUSH Scheme 1">
+            <img class="mySlides" src="ayush2.jpg" alt="AYUSH Scheme 2">
+            <img class="mySlides" src="ayush4.webp" alt="AYUSH Scheme 3">
+        </div>
+    </section>
+
+    <!-- Prime Minister Narendra Modi Section -->
+    <section class="pm-section">
+        <h2>Prime Minister Shri Narendra Modi</h2>
+        <img src="modi.jpg" alt="Prime Minister Narendra Modi">
+        <p>Under the leadership of Prime Minister Shri Narendra Modi, the government has made significant strides in promoting AYUSH healthcare systems. His vision of integrating traditional medicine with modern healthcare practices has enabled millions of people to access affordable healthcare. The promotion of Yoga on an international scale is one of his most notable contributions to global wellness.</p>
+    </section>
+
+    <!-- Slideshow 2 -->
+    <div class="slideshow">
+        <h1 style="text-align: center;">LETS MAKE HEALTHY NATION</h1>
+        <img src="india1.jpeg" alt="AYUSH Scheme 1" class="active">
+        <img src="india3.jpg" alt="AYUSH Scheme 2">
+        <img src="india4.jpeg" alt="AYUSH Scheme 3">
+        <img src="india5.png" alt="AYUSH Scheme 4">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Ministry of AYUSH - Medico Care. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Slideshow JavaScript for first slideshow
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none"; // Hide all slides
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1; // Reset to the first slide after the last one
+            }
+            slides[slideIndex - 1].style.display = "block"; // Show the current slide
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        // Slideshow JavaScript for second slideshow
+        let secondSlideIndex = 0;
+        const secondSlides = document.querySelectorAll('.slideshow img');
+
+        function showSecondSlides() {
+            secondSlides.forEach((slide, index) => {
+                slide.classList.remove('active');
+            });
+            secondSlideIndex++;
+            if (secondSlideIndex > secondSlides.length) {
+                secondSlideIndex = 1;
+            }
+            secondSlides[secondSlideIndex - 1].classList.add('active');
+            setTimeout(showSecondSlides, 3000); // Change image every 3 seconds
+        }
+
+        showSecondSlides();
+    </script>
+
+</body>
+</html>

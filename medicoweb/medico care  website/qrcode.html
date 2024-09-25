@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medico Care - Professional Healthcare Services</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+}
+
+header ul li {
+    margin-left: 20px;
+    position: relative;
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header ul li a:hover {
+    text-decoration: underline;
+}
+
+
+header ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    z-index: 1;
+    border: 1px solid #007BFF;
+}
+
+.dropdown a {
+    color: #007BFF;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+
+.intro {
+    background-image: url('stethoscope-medical-mask.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.intro-text h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.intro-text img {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.intro-text button {
+    background-color: #28a745;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.intro-text button:hover {
+    background-color: #218838;
+}
+
+
+footer {
+    background-color: #007BFF;
+    color: white;   
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+#hospital-list, #ambulance-list, #blood-search, #child-helpline {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #007BFF;
+    background-color: #f4f4f4;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+#blood-search input {
+    margin-right: 10px;
+}
+
+#blood-results {
+    margin-top: 10px;
+}
+
+    </style>
+</head>
+<body style="background-image: url('medic.avif');">
+    <header>
+        <nav>
+            <h1>Medico Care</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Emergency</a>
+                
+                    <div class="dropdown">
+                        <a href="#" onclick="showSection('hospital-list')">Nearby Hospitals</a>
+                        <a href="#" onclick="showSection('ambulance-list')">Nearby Ambulances</a>
+                        <a href="#" onclick="showSection('blood-search')">Find Blood Donors</a>
+                        <a href="#" onclick="showSection('child-helpline')">Child Helpline: 1098</a>
+                    </div>
+                </li>
+                <li><a href="scanner.html">Scanner</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="intro">
+        <div class="intro-text">
+            <h2>Welcome to Medico Care</h2>
+            <img src="images.img" alt="Healthcare Image">
+            <p>Your trusted partner in professional healthcare services, committed to providing high-quality, compassionate care to every patient.</p>
+            <button onclick="getStarted()">Get Started</button>
+        </div>
+    </section>
+
+
+    <div id="hospital-list">
+        <h3>Nearby Hospitals</h3>
+        <ul>
+            <li>City Hospital - 2km away</li>
+            <li>General Care Hospital - 3km away</li>
+            <li>Health Plus Center - 5km away</li>
+        </ul>
+    </div>
+
+    <div id="ambulance-list">
+        <h3>Nearby Ambulances</h3>
+        <ul>
+            <li>Ambulance Service 1 - Call: 1234567890</li>
+            <li>Ambulance Service 2 - Call: 0987654321</li>
+            <li>Ambulance Service 3 - Call: 1122334455</li>
+        </ul>
+    </div>
+
+    <div id="blood-search">
+        <h3>Find Blood Donors</h3>
+        <input type="text" id="bloodGroup" placeholder="Enter Blood Group (e.g., O+)">
+        <button onclick="searchBlood()">Search</button>
+        <ul id="blood-results"></ul>
+    </div>
+
+    
+    <div id="child-helpline">
+        <h3>Child Helpline: 1098</h3>
+        <p>If you need assistance, please call the child helpline at <strong>1098</strong> for immediate support.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Medico Care. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function getStarted() {
+            window.location.href = 'sign.html';
+        }
+
+    
+        function showSection(sectionId) {
+            const sections = ['hospital-list', 'ambulance-list', 'blood-search', 'child-helpline'];
+            sections.forEach(section => {
+                document.getElementById(section).style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        
+        function searchBlood() {
+            const bloodGroup = document.getElementById('bloodGroup').value.trim().toUpperCase();
+            const bloodResults = document.getElementById('blood-results');
+            
+            const users = [
+                { name: 'John Doe', bloodGroup: 'O+', location: 'Location 1' },
+                { name: 'Jane Smith', bloodGroup: 'A+', location: 'Location 2' },
+                { name: 'Sam Brown', bloodGroup: 'B-', location: 'Location 3' }
+            ];
+
+            bloodResults.innerHTML = '';  
+
+            const filteredUsers = users.filter(user => user.bloodGroup === bloodGroup);
+
+            if (filteredUsers.length > 0) {
+                filteredUsers.forEach(user => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${user.name} - ${user.bloodGroup} - ${user.location}`;
+                    bloodResults.appendChild(listItem);
+                });
+            } else {
+                const listItem = document.createElement('li');
+                listItem.textContent = 'No donors found for this blood group.';
+                bloodResults.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>
